@@ -17,34 +17,34 @@ public class UserController {
     @Resource
     private User1Mapper user1Mapper;
 
-	@Resource
-	private User2Mapper user2Mapper;
-	
-	@RequestMapping("/getUsers")
-	public List<UserEntity> getUsers() {
-		List<UserEntity> users=user2Mapper.getAll();
-		return users;
-	}
-	
-   @RequestMapping("/getUser")
+    @Resource
+    private User2Mapper user2Mapper;
+
+    @RequestMapping("/getUsers")
+    public List<UserEntity> getUsers() {
+        List<UserEntity> users = user2Mapper.getAll();
+        return users;
+    }
+
+    @RequestMapping("/getUser")
     public UserEntity getUser(Long id) {
-    	UserEntity user=user1Mapper.getOne(id);
+        UserEntity user = user1Mapper.getOne(id);
         return user;
     }
-    
+
     @RequestMapping("/add")
     public void save(UserEntity user) {
         user1Mapper.insert(user);
     }
-    
-    @RequestMapping(value="update")
+
+    @RequestMapping(value = "update")
     public void update(UserEntity user) {
         user1Mapper.update(user);
     }
-    
-    @RequestMapping(value="/delete/{id}")
+
+    @RequestMapping(value = "/delete/{id}")
     public void delete(@PathVariable("id") Long id) {
         user1Mapper.delete(id);
     }
-    
+
 }
