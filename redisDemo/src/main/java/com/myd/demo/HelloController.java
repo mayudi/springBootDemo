@@ -22,13 +22,13 @@ public class HelloController {
 
 
     @GetMapping("/hello")
-    public String hello(){
-        redisTemplate.opsForValue().set("admin","admin");
+    public String hello() {
+        redisTemplate.opsForValue().set("admin", "admin");
         return "测试";
     }
 
     @GetMapping("/get")
-    public String get(){
+    public String get() {
         return redisTemplate.opsForValue().get("admin").toString();
     }
 
